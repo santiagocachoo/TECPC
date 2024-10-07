@@ -78,8 +78,8 @@ def main():
 main()
 
 """
-"""
-EJERCICIO 2 (interes simple y compuesto)
+
+# EJERCICIO 2 (interes simple y compuesto)
 
 def interes_simple(capital, tasa, tiempo):
     return capital * (1 + tasa * tiempo)
@@ -90,7 +90,7 @@ def interes_compuesto(capital, tasa, tiempo, frecuencia):
     return capital * (1 + tasa / n) ** (n * tiempo)
 
 def mostrar_resumen_inversion(resultado):
-    print(f'Despues del tiempo indicado, el valor de su inversión es: {resultado}')
+    print(f'Despues del tiempo indicado, el valor de su inversión es: {resultado:.2f}')
 
 def datos():
     try:
@@ -130,7 +130,7 @@ def main():
 
 main()
 
-"""
+
 """
 EJERCICIO 3 (volumen y area superficial)
 
