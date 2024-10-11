@@ -1,8 +1,8 @@
 import math as m
 
-def magnitud_velocidad_instantanea():
+def magnitud_aceleracion_instantanea():
     """
-    función para calcular la magnitud de la velocidad instantanea dada una función de velocidad y un valor de x
+    función para calcular la magnitud de la aceleración instantanea dada una función de aceleración y un valor de x
     solicita los datos al usuario, verifica que sean correctos, y despues hace el calculo
     """
     # funcion para manejar el ingreso de datos
@@ -19,7 +19,7 @@ def magnitud_velocidad_instantanea():
 
     # pedir la función de velocidad al usuario
     print("""
-    Ingrese la función de velocidad instantanea
+    Ingrese la función de aceleración instantanea
     Ejemplos de como escribir expresiones matematicas:
         - Suma y resta = 2 + 3 - 4
         - Multiplicación = 5*x*y
@@ -31,7 +31,7 @@ def magnitud_velocidad_instantanea():
     NOTA: para funciones matematicas, asegurarse de ingresar 'm.' antes de la función   
     """)
 
-    funcion_velocidad = input('f(x) = ')
+    funcion_aceleracion = input('f(x) = ')
 
     # crear entorno seguro que solo permite ciertas funciones matematicas para la expresion de la derivada
     entorno_seguro = {
@@ -44,11 +44,11 @@ def magnitud_velocidad_instantanea():
     try:
         # evaluar la expresion en el entorno seguro
         entorno_seguro['x'] = x
-        velocidad = eval(funcion_velocidad, entorno_seguro)
-        magnitud_velocidad = abs(velocidad)
+        aceleracion = eval(funcion_aceleracion, entorno_seguro)
+        magnitud_aceleracion = abs(aceleracion)
 
-        print(f'La magnitud de la velocidad instantanea en x = {x} es: {magnitud_velocidad}')
+        print(f'La magnitud de la velocidad instantanea en x = {x} es: {magnitud_aceleracion}')
     except Exception as e:
-        print(f'Error al evaluar la funcion de velocidad: {e}')
+        print(f'Error al evaluar la funcion de aceleracion: {e}')
 
-magnitud_velocidad_instantanea()
+magnitud_aceleracion_instantanea()
