@@ -105,4 +105,56 @@ def calcular_siguiente_xn():
     print('Los valores de x son:')
     print(valores_x)
 
-metodo_euler_intervalo()
+
+def calcular_pendiente_euler():
+    """
+    función para calcular el valor de la pendiente f(x_n, y_n) en el método de Euler.
+    solicita al usuario que ingrese los valores de x_n, y_n y la función de la derivada.
+    verifica que las entradas sean válidas y evalúa de manera segura.
+    """
+    # función para manejar el ingreso de datos 
+    def input_float(mensaje):
+        while True:
+            try:
+                valor = float(input(mensaje))
+                return valor
+            except ValueError:
+                print('Por favor, ingrese un número válido.')
+
+    # pedimos al usuario que ingrese los valores de x_n y y_n
+    x_n = input_float('Ingrese el valor de x_n: ')
+    y_n = input_float('Ingrese el valor de y_n: ')
+
+    print("""
+    Ingrese la función de aceleración instantanea
+    Ejemplos de como escribir expresiones matematicas:
+        - Suma y resta = 2 + 3 - 4
+        - Multiplicación = 5*x*y
+        - División = x / y
+        - Potencia = x**2 (esto significa x al cuadrado)
+        - Funciones matematicas = Para seno: m.sin(x), para coseno: m.cos(x), para logaritmos: m.log(x). 
+        Para mas información sobre como escribir una función matematica, consultar documentación de modulo math
+
+    NOTA: para funciones matematicas, asegurarse de ingresar 'm.' antes de la función   
+    """)
+
+    # pedimos la expresión de la derivada al usuario
+    derivada_funcion = input("f(x, y) = ")
+
+    # crear entorno seguro que solo permite ciertas funciones matematicas para la expresion de la derivada
+    entorno_seguro = {
+        'x': x_n,
+        'y': y_n,
+        'm': m,
+        '__builtins__': None  # desactivamos el acceso a funciones peligrosas
+    }
+
+    # calcular el valor de la pendiente f(x_n, y_n) usando eval de forma segura
+    try:
+        pendiente = eval(derivada_funcion, entorno_seguro)  # evaluamos la expresión de la derivada
+        print(f"El valor de la pendiente f({x_n}, {y_n}) es: {pendiente}")
+    except Exception as e:
+        print(f"Error al evaluar la función de la derivada: {e}")
+
+
+calcular_pendiente_euler()
