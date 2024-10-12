@@ -104,3 +104,5 @@ def calcular_siguiente_xn():
 
     print('Los valores de x son:')
     print(valores_x)
+
+metodo_euler_intervalo()
