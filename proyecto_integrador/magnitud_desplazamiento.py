@@ -27,4 +27,4 @@ def magnitud_desplazamiento():
 
     # calcular magnitud
     magnitud = m.sqrt(desplazamiento_x**2 + desplazamiento_y**2)
-    return magnitud
+    print(f'La magnitud del desplazamiento es: {magnitud}')
